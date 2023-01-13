@@ -3,7 +3,7 @@ import { Build, BuildOptions } from './address/build';
 import { Info, InfoOptions } from './address/info';
 import { KeyGen, KeyGenOptions } from './address/key-gen';
 import { KeyHash, KeyHashOptions } from './address/key-hash';
-import { Builder } from './builder';
+import { Builder } from '@zodimo/cardano-cli-base';
 
 export class Address {
   public readonly commandPrefix: string;
