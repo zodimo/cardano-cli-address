@@ -1,0 +1,13 @@
+Usage: cardano-cli address build-script --script-file FILE
+            (--mainnet | --testnet-magic NATURAL)
+            [--out-file FILE]
+
+  Build a Shelley script address. (deprecated; use 'build' instead with
+  '--payment-script-file')
+
+Available options:
+  --script-file FILE       Filepath of the script.
+  --mainnet                Use the mainnet magic id.
+  --testnet-magic NATURAL  Specify a testnet magic id.
+  --out-file FILE          Optional output file. Default is to write to stdout.
+  -h,--help                Show this help text
