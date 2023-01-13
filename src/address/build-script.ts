@@ -1,17 +1,17 @@
 import { Builder } from '../builder';
 import { CommandOptions } from '../command-options';
-import { CommandParameter } from '../command-parameter';
+import { StringCommandParameter } from '../command-parameter';
 import { Command } from '../command';
 import { Network, NetworkBuilder } from '../common/network';
 import { OutFile, OutFileBuilder } from '../common/out-file';
 
 export class BuildScriptOptions implements CommandOptions {
-  private scriptFile?: CommandParameter;
+  private scriptFile?: StringCommandParameter;
   private network?: Network;
   private outFile?: OutFile;
 
   withScriptFile(value: string): BuildScriptOptions {
-    this.scriptFile = new CommandParameter('script-file', value);
+    this.scriptFile = new StringCommandParameter('script-file', value);
     return this;
   }
 

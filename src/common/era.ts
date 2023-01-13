@@ -1,4 +1,4 @@
-import { CommandParameter } from '../command-parameter';
+import { BooleanCommandParameter } from '../command-parameter';
 
 export enum Eras {
   BYRON = 'byron-era',
@@ -30,7 +30,7 @@ export class EraBuilder {
   }
 }
 
-export class Era extends CommandParameter {
+export class Era extends BooleanCommandParameter {
   constructor(paramKey: Eras) {
     super(paramKey);
   }

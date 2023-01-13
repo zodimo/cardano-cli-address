@@ -1,15 +1,15 @@
 import { Builder } from '../builder';
 import { CommandOptions } from '../command-options';
-import { CommandParameter } from '../command-parameter';
+import { StringCommandParameter } from '../command-parameter';
 import { Command } from '../command';
 import { OutFile, OutFileBuilder } from '../common/out-file';
 
 export class InfoOptions implements CommandOptions {
-  private address?: CommandParameter;
+  private address?: StringCommandParameter;
   private outFile?: OutFile;
 
   withAddress(value: string): InfoOptions {
-    this.address = new CommandParameter('address', value);
+    this.address = new StringCommandParameter('address', value);
     return this;
   }
 

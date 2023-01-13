@@ -1,4 +1,4 @@
-import { CommandParameter } from '../command-parameter';
+import { BooleanCommandParameter, CompositeCommandParameter, NumericCommandParameter } from '../command-parameter';
 
 export class NetworkBuilder {
   mainnet(): Network {
@@ -10,14 +10,14 @@ export class NetworkBuilder {
   }
 }
 
-export class Network extends CommandParameter {
+export class Network extends CompositeCommandParameter {
   static mainnet(): Network {
     const param = 'mainnet';
-    return new Network(param);
+    return Network.from(BooleanCommandParameter.from(param));
   }
 
   static testnetMagic(value: number): Network {
     const param = 'testnet-magic';
-    return new Network(param, value.toString());
+    return Network.from(NumericCommandParameter.from(param, value));
   }
 }

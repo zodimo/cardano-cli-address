@@ -1,5 +1,5 @@
 import { Command } from '../command';
-import { CommandParameter } from '../command-parameter';
+import { BooleanCommandParameter, StringCommandParameter } from '../command-parameter';
 import { CommandOptions } from '../command-options';
 import { Builder } from '../builder';
 
@@ -21,7 +21,7 @@ export class KeyTypeBuilder {
   }
 }
 
-export class KeyType extends CommandParameter {
+export class KeyType extends BooleanCommandParameter {
   constructor(paramKey: KeyTypes) {
     super(paramKey);
   }
@@ -39,8 +39,8 @@ export class KeyType extends CommandParameter {
 
 export class KeyGenOptions implements CommandOptions {
   private keyType?: KeyType;
-  private verificationKeyFile?: CommandParameter;
-  private signingKeyFile?: CommandParameter;
+  private verificationKeyFile?: StringCommandParameter;
+  private signingKeyFile?: StringCommandParameter;
 
   withKeyType(builder: Builder<KeyTypeBuilder, KeyType>): KeyGenOptions;
   withKeyType(value: KeyType): KeyGenOptions;
@@ -54,11 +54,11 @@ export class KeyGenOptions implements CommandOptions {
     }
   }
   withVerificationKeyFile(verificationKeyFile: string): KeyGenOptions {
-    this.verificationKeyFile = new CommandParameter('verification-key-file', verificationKeyFile);
+    this.verificationKeyFile = new StringCommandParameter('verification-key-file', verificationKeyFile);
     return this;
   }
   withSigningKeyFile(signingKeyFile: string): KeyGenOptions {
-    this.signingKeyFile = new CommandParameter('signing-key-file', signingKeyFile);
+    this.signingKeyFile = new StringCommandParameter('signing-key-file', signingKeyFile);
     return this;
   }
 

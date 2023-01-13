@@ -1,6 +1,6 @@
 import { Builder } from '../builder';
 import { CommandOptions } from '../command-options';
-import { CommandParameter } from '../command-parameter';
+import { StringCommandParameter } from '../command-parameter';
 import { Command } from '../command';
 import { OutFile, OutFileBuilder } from '../common/out-file';
 
@@ -17,7 +17,7 @@ export class PaymentVerificationKeyFactory {
     return PaymentVerificationKey.file(value);
   }
 }
-export class PaymentVerificationKey extends CommandParameter {
+export class PaymentVerificationKey extends StringCommandParameter {
   constructor(paramKey: PaymentVerificationKeyOptions, paramValue: string) {
     super(paramKey, paramValue);
   }

@@ -2,7 +2,7 @@ import { Command } from '../command';
 import { CommandOptions } from '../command-options';
 import { OutFile, OutFileBuilder } from '../common/out-file';
 import { Network, NetworkBuilder } from '../common/network';
-import { CommandParameter } from '../command-parameter';
+import { StringCommandParameter } from '../command-parameter';
 import { Builder } from '../builder';
 
 export enum PaymentComponents {
@@ -23,7 +23,7 @@ export class PaymentComponentBuilder {
   }
 }
 
-export class PaymentComponent extends CommandParameter {
+export class PaymentComponent extends StringCommandParameter {
   constructor(paramKey: PaymentComponents, paramValue: string) {
     super(paramKey, paramValue);
   }
@@ -57,7 +57,7 @@ export class StakeComponentBuilder {
   }
 }
 
-export class StakeComponent extends CommandParameter {
+export class StakeComponent extends StringCommandParameter {
   constructor(paramKey: StakeComponents, paramValue: string) {
     super(paramKey, paramValue);
   }

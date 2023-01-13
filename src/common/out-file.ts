@@ -1,4 +1,4 @@
-import { CommandParameter } from '../command-parameter';
+import { StringCommandParameter } from '../command-parameter';
 
 export class OutFileBuilder {
   createForFile(file: string): OutFile {
@@ -6,7 +6,7 @@ export class OutFileBuilder {
   }
 }
 
-export class OutFile extends CommandParameter {
+export class OutFile extends StringCommandParameter {
   static createForFile(file: string): OutFile {
     return new OutFile('out-file', file);
   }

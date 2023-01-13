@@ -1,6 +1,4 @@
-import assert from 'assert';
-import { notNullish } from '../helper';
-import { CommandParameter } from '../command-parameter';
+import { BooleanCommandParameter, CompositeCommandParameter, MaybeCommandParameterFactory } from '../command-parameter';
 
 export enum NodeModes {
   SHELLY = 'shelley-mode',
@@ -19,29 +17,18 @@ export class NodeModeBuilder {
   }
 }
 
-export class NodeMode extends CommandParameter {
-  constructor(paramKey: NodeModes, paramValue?: string) {
-    super(paramKey, paramValue);
-  }
+export class NodeMode extends CompositeCommandParameter {
   static shelley(): NodeMode {
-    return new NodeMode(NodeModes.SHELLY);
+    return NodeMode.from(BooleanCommandParameter.from(NodeModes.SHELLY));
   }
 
   static byron(slotsPerEpoch?: number): NodeMode {
-    if (notNullish(slotsPerEpoch)) {
-      assert(typeof slotsPerEpoch === 'number');
-      const epochSlots = new CommandParameter('epoch-slots', slotsPerEpoch.toString());
-      return new NodeMode(NodeModes.BYRON, epochSlots.toString());
-    }
-    return new NodeMode(NodeModes.BYRON);
+    const epochSlots = MaybeCommandParameterFactory.maybeNumeric('epoch-slots', slotsPerEpoch);
+    return NodeMode.from(BooleanCommandParameter.from(NodeModes.BYRON), epochSlots);
   }
 
   static cardano(slotsPerEpoch?: number): NodeMode {
-    if (notNullish(slotsPerEpoch)) {
-      assert(typeof slotsPerEpoch === 'number');
-      const epochSlots = new CommandParameter('epoch-slots', slotsPerEpoch.toString());
-      return new NodeMode(NodeModes.CARDANO, epochSlots.toString());
-    }
-    return new NodeMode(NodeModes.CARDANO);
+    const epochSlots = MaybeCommandParameterFactory.maybeNumeric('epoch-slots', slotsPerEpoch);
+    return NodeMode.from(BooleanCommandParameter.from(NodeModes.CARDANO), epochSlots.toString());
   }
 }
