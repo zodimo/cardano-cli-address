@@ -1,9 +1,13 @@
-import { Builder } from '../builder';
-import { CommandOptions } from '../command-options';
-import { StringCommandParameter } from '../command-parameter';
-import { Command } from '../command';
-import { Network, NetworkBuilder } from '../common/network';
-import { OutFile, OutFileBuilder } from '../common/out-file';
+import {
+  Builder,
+  Command,
+  CommandOptions,
+  Network,
+  NetworkBuilder,
+  OutFile,
+  OutFileBuilder,
+  StringCommandParameter,
+} from '@zodimo/cardano-cli-base';
 
 export class BuildScriptOptions implements CommandOptions {
   private scriptFile?: StringCommandParameter;

@@ -1,9 +1,13 @@
-import { Command } from '../command';
-import { CommandOptions } from '../command-options';
-import { OutFile, OutFileBuilder } from '../common/out-file';
-import { Network, NetworkBuilder } from '../common/network';
-import { StringCommandParameter } from '../command-parameter';
-import { Builder } from '../builder';
+import {
+  Builder,
+  Command,
+  CommandOptions,
+  Network,
+  NetworkBuilder,
+  OutFile,
+  OutFileBuilder,
+  StringCommandParameter,
+} from '@zodimo/cardano-cli-base';
 
 export enum PaymentComponents {
   VERIFICATION_KEY = 'payment-verification-key',

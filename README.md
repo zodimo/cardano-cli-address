@@ -13,8 +13,6 @@ node dist/dump-cli-help-to-docs.js
 
 # TODO
 
-- extract common command parameters to own packages
-- extract command builder infrastructure to own package
 - add git integration and test coverage badges
 
 - Implementations

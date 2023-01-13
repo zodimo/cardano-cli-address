@@ -1,7 +1,10 @@
-import { Command } from '../command';
-import { BooleanCommandParameter, StringCommandParameter } from '../command-parameter';
-import { CommandOptions } from '../command-options';
-import { Builder } from '../builder';
+import {
+  BooleanCommandParameter,
+  Builder,
+  Command,
+  CommandOptions,
+  StringCommandParameter,
+} from '@zodimo/cardano-cli-base';
 
 export enum KeyTypes {
   NORMAL = 'normal-key',

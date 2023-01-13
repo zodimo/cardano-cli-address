@@ -1,8 +1,11 @@
-import { Builder } from '../builder';
-import { CommandOptions } from '../command-options';
-import { StringCommandParameter } from '../command-parameter';
-import { Command } from '../command';
-import { OutFile, OutFileBuilder } from '../common/out-file';
+import {
+  Builder,
+  Command,
+  CommandOptions,
+  OutFile,
+  OutFileBuilder,
+  StringCommandParameter,
+} from '@zodimo/cardano-cli-base';
 
 export enum PaymentVerificationKeyOptions {
   VALUE = 'payment-verification-key',
