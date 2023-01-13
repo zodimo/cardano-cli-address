@@ -1,5 +1,5 @@
 {
-  "name": "cardano-cli-address",
+  "name": "@zodimo/cardano-cli-address",
   "version": "1.0.0",
   "description": "cardano-cli address wrapper",
   "main": "./dist/index.js",
