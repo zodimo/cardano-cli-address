@@ -1,9 +1,9 @@
 {
   "name": "@zodimo/cardano-cli-address",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "cardano-cli address wrapper",
-  "main": "./dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
  
   "scripts": {
     "test": "jest",
