@@ -19,7 +19,7 @@ export class InfoOptions implements CommandOptions {
   withOutFile(builder: Builder<OutFileBuilder, OutFile>): InfoOptions;
   withOutFile(value: OutFile): InfoOptions;
   withOutFile(value: OutFile | Builder<OutFileBuilder, OutFile>): InfoOptions {
-    if (value instanceof OutFile) {
+    if (typeof value !== 'function') {
       this.outFile = value;
       return this;
     }

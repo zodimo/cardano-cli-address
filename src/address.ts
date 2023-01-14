@@ -20,7 +20,7 @@ export class Address {
   keyGen(builder: Builder<KeyGenOptions, KeyGenOptions>): KeyGen;
   keyGen(options: KeyGenOptions): KeyGen;
   keyGen(value: KeyGenOptions | Builder<KeyGenOptions, KeyGenOptions>): KeyGen {
-    if (value instanceof KeyGenOptions) {
+    if (typeof value !== 'function') {
       return new KeyGen(this.commandPrefix, value);
     }
     const options = value(new KeyGenOptions());
@@ -32,7 +32,7 @@ export class Address {
   keyHash(builder: Builder<KeyHashOptions, KeyHashOptions>): KeyHash;
   keyHash(options: KeyHashOptions): KeyHash;
   keyHash(value: KeyHashOptions | Builder<KeyHashOptions, KeyHashOptions>): KeyHash {
-    if (value instanceof KeyHashOptions) {
+    if (typeof value !== 'function') {
       return new KeyHash(this.commandPrefix, value);
     }
 
@@ -45,7 +45,7 @@ export class Address {
   build(builder: Builder<BuildOptions, BuildOptions>): Build;
   build(options: BuildOptions): Build;
   build(value: BuildOptions | Builder<BuildOptions, BuildOptions>): Build {
-    if (value instanceof BuildOptions) {
+    if (typeof value !== 'function') {
       return new Build(this.commandPrefix, value);
     }
     const options = value(new BuildOptions());
@@ -57,7 +57,7 @@ export class Address {
   buildScript(builder: Builder<BuildScriptOptions, BuildScriptOptions>): BuildScript;
   buildScript(options: BuildScriptOptions): BuildScript;
   buildScript(value: BuildScriptOptions | Builder<BuildScriptOptions, BuildScriptOptions>): BuildScript {
-    if (value instanceof BuildScriptOptions) {
+    if (typeof value !== 'function') {
       return new BuildScript(this.commandPrefix, value);
     }
     const options = value(new BuildScriptOptions());
@@ -69,7 +69,7 @@ export class Address {
   info(builder: Builder<InfoOptions, InfoOptions>): Info;
   info(options: InfoOptions): Info;
   info(value: InfoOptions | Builder<InfoOptions, InfoOptions>): Info {
-    if (value instanceof InfoOptions) {
+    if (typeof value !== 'function') {
       return new Info(this.commandPrefix, value);
     }
     const options = value(new InfoOptions());

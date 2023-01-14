@@ -43,7 +43,7 @@ export class KeyHashOptions implements CommandOptions {
   withPaymentVerificationKey(
     value: PaymentVerificationKey | Builder<PaymentVerificationKeyFactory, PaymentVerificationKey>,
   ): KeyHashOptions {
-    if (value instanceof PaymentVerificationKey) {
+    if (typeof value !== 'function') {
       this.paymentVerificationKey = value;
       return this;
     }
@@ -53,7 +53,7 @@ export class KeyHashOptions implements CommandOptions {
   withOutFile(builder: Builder<OutFileBuilder, OutFile>): KeyHashOptions;
   withOutFile(value: OutFile): KeyHashOptions;
   withOutFile(value: OutFile | Builder<OutFileBuilder, OutFile>): KeyHashOptions {
-    if (value instanceof OutFile) {
+    if (typeof value !== 'function') {
       this.outFile = value;
       return this;
     }

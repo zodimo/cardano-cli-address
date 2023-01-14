@@ -22,7 +22,7 @@ export class BuildScriptOptions implements CommandOptions {
   withNetwork(builder: Builder<NetworkBuilder, Network>): BuildScriptOptions;
   withNetwork(value: Network): BuildScriptOptions;
   withNetwork(value: Network | Builder<NetworkBuilder, Network>): BuildScriptOptions {
-    if (value instanceof Network) {
+    if (typeof value !== 'function') {
       this.network = value;
       return this;
     }
@@ -34,7 +34,7 @@ export class BuildScriptOptions implements CommandOptions {
   withOutFile(builder: Builder<OutFileBuilder, OutFile>): BuildScriptOptions;
   withOutFile(value: OutFile): BuildScriptOptions;
   withOutFile(value: OutFile | Builder<OutFileBuilder, OutFile>): BuildScriptOptions {
-    if (value instanceof OutFile) {
+    if (typeof value !== 'function') {
       this.outFile = value;
       return this;
     }

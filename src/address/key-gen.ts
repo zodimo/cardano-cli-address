@@ -48,7 +48,7 @@ export class KeyGenOptions implements CommandOptions {
   withKeyType(builder: Builder<KeyTypeBuilder, KeyType>): KeyGenOptions;
   withKeyType(value: KeyType): KeyGenOptions;
   withKeyType(value: KeyType | Builder<KeyTypeBuilder, KeyType>): KeyGenOptions {
-    if (value instanceof KeyType) {
+    if (typeof value !== 'function') {
       this.keyType = value;
       return this;
     } else {
